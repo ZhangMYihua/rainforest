@@ -1,23 +1,23 @@
 class ProductsController < ApplicationController
 
 	def index
-		@products = Product.all
+		@product = Product.all
 	end
 
 	def show
-		@products = Product.find(params[:id])
+		@product = Product.find(params[:id])
 	end 
 
 	def new
-		@products = Product.new
+		@product = Product.new
 	end
 
 	def edit
-		@products = Product.find(params[:id])
+		@product = Product.find(params[:id])
 	end
 
 	def create
-		@products = Product.new(product_params)
+		@product = Product.new(product_params)
 
 		if @product.save
 			redirect_to products_url
@@ -30,7 +30,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
 
     if @product.update_attributes(product_params)
-      redirect_to product_path(@product)
+      redirect_to products_path(@product)
     else
       render :edit
     end
